@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hong Shi · Personal Site</title>
+  <meta name="description" content="Hong Shi · Environmental engineering student who thinks a lot, learns a lot, and writes a little." />
+  <style>
+    :root {
+      --bg: #ecfdf5;          /* soft mint background */
+      --bg-soft: #d1fae5;
+      --bg-card: #ffffff;
+      --accent: #10b981;      /* main mint color */
+      --accent-soft: #6ee7b7;
+      --text-main: #111827;
+      --text-soft: #6b7280;
+      --border-soft: #d1d5db;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 10px 30px rgba(15, 118, 110, 0.08);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
+        "PingFang SC", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #ecfdf5, #f9fafb 55%, #ffffff 85%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px clamp(16px, 4vw, 32px) 40px;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(236, 253, 245, 0.96),
+        rgba(236, 253, 245, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(209, 250, 229, 0.7);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px clamp(16px, 4vw, 32px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #a7f3d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #065f46;
+      box-shadow: 0 0 0 2px #a7f3d0;
+    }
+
+
+
+    .logo-text-main {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      padding: 4px 0;
+      position: relative;
+      color: var(--text-soft);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 0.16s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    .nav-cta {
+      border-radius: 999px;
+      border: 1px solid #a7f3d0;
+      padding: 6px 12px;
+      font-size: 12px;
+      background: #d1fae5;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #065f46;
+    }
+
+    .nav-cta:hover {
+      background: #a7f3d0;
+    }
+
+    main {
+      margin-top: 16px;
+    }
+
+    section {
+      margin-top: 36px;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-pill {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #d1fae5;
+      font-size: 11px;
+      color: #047857;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-pill span {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 4vw, 30px);
+      font-weight: 650;
+      line-height: 1.3;
+    }
+
+    .hero-title span {
+      color: #059669;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 36rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .hero-tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #047857;
+      border: 1px solid #bbf7d0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: #059669;
+    }
+
+    .btn-ghost {
+      border-color: var(--border-soft);
+      background: white;
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: #f3f4f6;
+    }
+
+    .hero-meta {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* RIGHT PROFILE CARD */
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      background: var(--bg-card);
+      border-radius: 22px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+      max-width: 320px;
+      width: 100%;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .avatar {
+      width: 60px;          /* 或你当前用的 48px */
+      height: 60px;
+      border-radius: 50%;   /* ← 改成圆形 */
+      background: #a7f3d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;      /* 根据尺寸调整 */
+      color: #065f46;
+      font-weight: 600;
+      flex-shrink: 0;       /* 防止被压扁 */
+    }
+
+
+
+    .profile-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .profile-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .profile-chip {
+      margin-left: auto;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #047857;
+    }
+
+    .profile-body {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+
+    /* SECTION HEADERS & GENERIC CARD */
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 4px;
+      height: 16px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, #10b981, #a7f3d0);
+    }
+
+    .section-subtitle {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: 16px;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      border-left: 2px dashed #a7f3d0;
+      margin-top: 4px;
+      padding-left: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -13px;
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #10b981;
+      box-shadow: 0 0 0 3px #d1fae5;
+    }
+
+    .timeline-title {
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+      white-space: pre-line;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+    }
+
+    .project-title {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .project-tags {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10px;
+    }
+
+    .project-tag {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #047857;
+      border: 1px solid #bbf7d0;
+    }
+
+    /* BLOG */
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .blog-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .blog-title {
+      font-weight: 500;
+    }
+
+    .blog-date {
+      font-size: 11px;
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+
+    .blog-meta-row {
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mood-tag {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #047857;
+      font-size: 10px;
+    }
+
+    .blog-content {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .blog-more {
+      font-size: 11px;
+      color: #059669;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-left: 4px;
+    }
+
+    /* CONTACT */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-list {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #dcfce7;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #047857;
+    }
+
+    .contact-link {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      color: #047857;
+    }
+
+    .contact-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 4px;
+    }
+
+    label {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    input,
+    textarea {
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      padding: 7px 9px;
+      font-size: 12px;
+      font-family: inherit;
+      outline: none;
+      background: #ffffff;
+      color: var(--text-main);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #10b981;
+      box-shadow: 0 0 0 2px #a7f3d0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .form-helper {
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 28px;
+      padding-top: 12px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .about-grid,
+      .projects-grid,
+      .blog-grid,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        position: absolute;
+        inset: 46px 16px auto 16px;
+        padding: 10px 12px;
+        background: #ecfdf5;
+        border-radius: 14px;
+        border: 1px solid #a7f3d0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 13px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-4px);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo-mark">泓</div>
+        <div>
+          <div class="logo-text-main">Hong Shi</div>
+          <div class="logo-text-sub">Env. Engineering · CS · Notes</div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Open Menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <button class="nav-cta" onclick="scrollToSection('contact')">
+        💌 Contact Me
+      </button>
+    </nav>
+  </header>
+
+  <div class="page">
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-left">
+          <div class="hero-pill">
+            <span>Hi, I'm Hong</span> Beijing University of Technology · Environmental Engineering
+          </div>
+
+          <h1 class="hero-title">
+            <span>Study</span>, <span>work</span>, and <span>life</span>.
+          </h1>
+          <p class="hero-subtitle">
+            I'm an environmental engineering undergraduate in Beijing, currently juggling calculus, linear algebra,
+            chemistry, student work, and a growing curiosity about computing.  
+            This site is where I park my notes, small projects, and the pieces of life that don’t quite fit on social media.
+          </p>
+
+          <div class="hero-tags">
+            <div class="hero-tag">Environmental Engineering · Water</div>
+            <div class="hero-tag">Calculus · Linear Algebra · Chemistry</div>
+            <div class="hero-tag">Python · CS Basics</div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="scrollToSection('blog')">
+              Read my latest entries 📖
+            </button>
+            <button class="btn-ghost" onclick="scrollToSection('about')">
+              Learn more about me
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            <span>🎂 Born Oct 2007</span>
+            <span>📚 Current focus: mid-term exams & figuring out what I truly enjoy</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <article class="profile-card">
+            <div class="profile-top">
+              <div class="avatar">泓</div>
+              <div>
+                <div class="profile-name">Hong Shi</div>
+                <div class="profile-sub">Beijing · Env. Engineering Major</div>
+              </div>
+              <div class="profile-chip">Attention Is All You Need</div>
+            </div>
+            <div class="profile-body">
+              Trying to handle the “multi-threaded” structure of university life:
+              classes, student organizations, volunteering, health, and the ongoing task of getting to know myself.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header">
+          <div class="section-title">About Me</div>
+          <div class="section-subtitle">A slightly more formal introduction</div>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Who I am</h3>
+            <p>
+              I'm Hong, currently studying in the School of Environmental Science and Engineering
+              at Beijing University of Technology.  
+              I used to love math in high school, and now I’m still wrestling with calculus and linear algebra—
+              just with more symbols and fewer naps.
+              <br /><br />
+              <p>
+                In university, I hope to:<br />
+                • Build a solid foundation in my major and find a path where I can create real value.<br />
+                • Do things that genuinely matter to me, not just fill my CV.<br />
+                • Explore the world—academically, professionally, and literally.
+              </p>
+
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>How I currently spend my time</h3>
+            <p>
+              · 30% — Coursework and exams<br />
+              · 20% — Student leadership & volunteering<br />
+              · 30% — Exploring things I'm curious about (or should learn)<br />
+              · 20% — Friends, small adventures, and intentional rest
+            </p>
+
+          </article>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section id="timeline">
+        <div class="section-header">
+          <div class="section-title">Personal Timeline</div>
+          <div class="section-subtitle">Tracing the path that brought me here</div>
+        </div>
+
+        <article class="card">
+          <h3>Study & Activities</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">BJUT · Environmental Science & Engineering</div>
+              <div class="timeline-meta">
+2025 – Present  
+· Class monitor, Class of 2025, Environmental Engineering  
+· Member, Sports & Culture Department, School Student Union  
+· Deputy Director, Editing Department, University Archives & History Museum  
+· Docent, Party Members Pioneer Society
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">BSDEFZ · High School Years</div>
+              <div class="timeline-meta">
+2022 – 2025  
+· Class learning committee member, Class 13  
+· Head of Publicity, Volunteer Association  
+· Member, Party School training program
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-header">
+          <div class="section-title">Projects</div>
+          <div class="section-subtitle">Anything I’ve tried to build or document</div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-title">Curriculum Notes</div>
+            <div class="project-meta">
+              A growing collection of notes and summaries for my core courses:
+              calculus, linear algebra, chemistry, and more.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Calculus</span>
+              <span class="project-tag">Linear Algebra</span>
+              <span class="project-tag">Study Notes</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-title">Early Research & Reading</div>
+            <div class="project-meta">
+              Recording small attempts in environmental science and my first steps
+              toward understanding CS-related methods and tools.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Env. Engineering</span>
+              <span class="project-tag">CS</span>
+              <span class="project-tag">Exploration</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- BLOG -->
+      <section id="blog">
+        <div class="section-header">
+          <div class="section-title">Blog</div>
+          <div class="section-subtitle">Fragments of life that I don’t post elsewhere</div>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Blog 1 -->
+          <article class="blog-card">
+            <div class="blog-title-row">
+              <div class="blog-title">Done with the Party History Museum tours</div>
+              <div class="blog-date">2025-11-18</div>
+            </div>
+            <div class="blog-meta-row">
+              <span class="mood-tag">Mood: happy, but strangely calm</span>
+              <span>Tag: Student work</span>
+            </div>
+            <div class="blog-content">
+              I’ve been preparing this guided tour for the Party history museum for about two weeks,
+              and today it finally wrapped up. I was nervous at first, but once I started speaking,
+              the script felt less like a script and more like something I could actually hold.
+              <span class="blog-more" onclick="toggleMore(this)">More</span>
+              <span class="blog-extra" style="display:none;">
+                <br />Seven pages of text is no joke. At one point I was literally kneeling on the floor of the exhibition hall,
+                reading from my iPad over and over again until my voice went hoarse.  
+                And yet, somehow, it all came together. That’s kind of how life works too, I guess.
+              </span>
+            </div>
+          </article>
+
+          <!-- Blog 2 -->
+          <article class="blog-card">
+            <div class="blog-title-row">
+              <div class="blog-title">A sentence that stayed with me</div>
+              <div class="blog-date">2025-11-19</div>
+            </div>
+            <div class="blog-meta-row">
+              <span class="mood-tag">Mood: mixed feelings</span>
+              <span>Tag: Words</span>
+            </div>
+            <div class="blog-content">
+              “Her life had never been easy, and still, she nodded in acceptance.”  
+              I saw this line online, and it has been stuck in my head all day.
+              Apparently my sensitivity to language survived engineering school.
+              <span class="blog-more" onclick="toggleMore(this)">More</span>
+              <span class="blog-extra" style="display:none;">
+                <br />There’s something quietly powerful about words that don’t scream,
+                but still manage to land right where it hurts and heals at the same time.
+              </span>
+            </div>
+          </article>
+
+          <!-- Blog 3 -->
+          <article class="blog-card">
+            <div class="blog-title-row">
+              <div class="blog-title">Turning 18</div>
+              <div class="blog-date">2025-10-25</div>
+            </div>
+            <div class="blog-meta-row">
+              <span class="mood-tag">Mood: peaceful</span>
+              <span>Tag: Birthday</span>
+            </div>
+            <div class="blog-content">
+              Morning: Japanese class at BLCU, just like any other Saturday.  
+              Evening: *In the Mood for Love* at the Beijing Film Archive, Seat 18 in Row 18, on my 18th birthday.
+              <span class="blog-more" onclick="toggleMore(this)">More</span>
+              <span class="blog-extra" style="display:none;">
+                <br />It felt like a quiet blessing from the universe. No fireworks, no big party,
+                just a soft realization that the world feels a little more “unlocked” than before.
+              </span>
+            </div>
+          </article>
+
+          <!-- Blog template -->
+          <article class="blog-card">
+            <div class="blog-title-row">
+              <div class="blog-title">A note for future me</div>
+              <div class="blog-date">2025-XX-XX</div>
+            </div>
+            <div class="blog-meta-row">
+              <span class="mood-tag">Mood: to be decided</span>
+              <span>Tag: Placeholder</span>
+            </div>
+            <div class="blog-content">
+              This space is reserved for whatever future-me wants to remember.
+              <span class="blog-more" onclick="toggleMore(this)">More</span>
+              <span class="blog-extra" style="display:none;">
+                <br />To add a new entry, copy this entire
+                <code>&lt;article class="blog-card"&gt;...&lt;/article&gt;</code> block,
+                paste it below, and change the title, date, tags, and content.
+              </span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-header">
+          <div class="section-title">Contact Me</div>
+          <div class="section-subtitle">Feel free to say hi :)</div>
+        </div>
+
+        <div class="contact-layout">
+          <div class="card">
+            <p>
+              I’m open to questions, collaboration ideas, or simple “I’m also confused about life” messages.
+              If anything here resonates with you, you’re very welcome to reach out.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  Email:
+                  <a class="contact-link" href="mailto:2044652586@qq.com">
+                    2044652586@qq.com
+                  </a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">🔗</div>
+                <div>
+                  GitHub: <a class="contact-link" href="https://github.com/2044652586" target="_blank">github.com/2044652586</a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📕</div>
+              <div>
+                Xiaohongshu:
+                <a class="contact-link" href="https://xhslink.com/m/9mLQjmyNZse" target="_blank">
+                  My XHS Profile
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📺</div>
+              <div>
+                Bilibili:
+                <a class="contact-link" href="https://space.bilibili.com/375546621" target="_blank">
+                  space.bilibili.com/375546621
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-note">
+              * The form on the right is a mock-up. If I ever need it to actually send emails, I’ll hook it up to a simple backend.
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="handleFakeSubmit(event)">
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="How should I call you?" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="So I can reply to you" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="topic">Topic</label>
+              <input
+                id="topic"
+                name="topic"
+                type="text"
+                placeholder="e.g. calculus help / major choice / just saying hi"
+              />
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Write anything you’d like to share."
+              ></textarea>
+            </div>
+
+            <button class="btn-primary" type="submit">
+              Send (demo)
+            </button>
+            <div class="form-helper">
+              One day this can become a real contact form.
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Hong Shi · Personal Site</div>
+      <div class="footer-link" onclick="scrollToSection('home')">Back to top ↑</div>
+    </footer>
+  </div>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // smooth scroll
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    // mobile menu
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+        });
+      });
+    }
+
+    // fake form submit
+    function handleFakeSubmit(e) {
+      e.preventDefault();
+      alert("This is a demo form only.\nIf you’d like, we can make it actually send emails later.");
+    }
+
+    // blog expand/collapse
+    function toggleMore(el) {
+      const extra = el.nextElementSibling;
+      if (!extra) return;
+      const hidden = extra.style.display === "none" || extra.style.display === "";
+      extra.style.display = hidden ? "inline" : "none";
+      el.textContent = hidden ? "Less" : "More";
+    }
+  </script>
+</body>
+</html>
