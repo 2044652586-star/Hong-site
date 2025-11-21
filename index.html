@@ -569,80 +569,62 @@
 
     /* CONTACT */
 
-    /* 让 contact 部分整体居中，只一列 */
-    .contact-layout.contact-centered {
-      display: flex;
-      justify-content: center;
-      margin-top: 8px;
-    }
+    /* 让 Contact 区和上面所有部分一样等宽（1100px），并居中 */
+      /* 让 Contact 部分与页面其他部分等宽（1100px） */
+      .contact-layout {
+        width: 100%;
+        max-width: 1100px;      /* 和 .page 一样 */
+        margin: 0 auto;         /* 居中 */
+      }
 
-    /* 卡片不要太宽，看起来更精致 */
-    .contact-card {
-      max-width: 640px;
-      width: 100%;
-    }
-
-    /* 上面那段介绍文字 */
-    .contact-intro {
-      margin: 0 0 10px;
-      font-size: 13px;
-      line-height: 1.8;
-      color: var(--text-soft);
-    }
-
-    /* 每一行联系方式 */
-    .contact-list {
-      margin-top: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 13px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* 左边的圆圆彩色图标 */
-    .contact-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: #dcfce7;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #047857;
-      flex-shrink: 0;
-    }
-
-    /* 右边的链接 */
-    .contact-link {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      color: #047857;
-    }
-
-    .contact-link:hover {
-      color: #059669;
-    }
-
-    /* 最底下一句小字 */
-    .contact-note {
-      margin-top: 10px;
-      font-size: 11px;
-      color: var(--text-soft);
-    }
+      /* Contact 卡片占满整个内容区宽度 */
+      .contact-card,
+      .card.contact-card {
+        width: 100%;
+        box-sizing: border-box;
+      }
 
 
-    .contact-form {
-      display: grid;
-      gap: 8px;
-      font-size: 12px;
-    }
+      /* 图标 + 链接部分保持原来的薄荷风格 */
+      .contact-list {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 14px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .contact-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        background: #dcfce7;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #047857;
+      }
+
+      .contact-link {
+        color: #047857;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .contact-note {
+        margin-top: 12px;
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+
 
     .field {
       display: grid;
@@ -759,6 +741,67 @@
         display: inline-flex;
       }
     }
+    /* --- Mobile layout (<= 700px) --- */
+  @media (max-width: 700px) {
+
+    /* 让所有 grid 区域变成单列 */
+    .hero,
+    .about-grid,
+    .projects-grid,
+    .blog-grid,
+    .contact-layout {
+      grid-template-columns: 1fr !important;
+      display: grid !important;
+    }
+
+    /* Hero 内部卡片在手机端排在文字下面 */
+    .hero-right {
+      order: 2;
+    }
+
+    .hero-left {
+      order: 1;
+    }
+
+    /* 让 contact 卡片也不要左右挤 */
+    .contact-layout {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+    @media (max-width: 700px) {
+
+    /* 正文字体大一点 */
+    body {
+      font-size: 15px;
+    }
+
+    /* 标题稍微小一点，避免撑爆屏幕 */
+    .hero-title {
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .section-title {
+      font-size: 18px;
+    }
+
+    /* 卡片内部更紧凑一点 */
+    .card {
+      padding: 14px 16px;
+    }
+
+    .profile-card {
+      padding: 14px 16px;
+    }
+}
+
   </style>
 </head>
 
@@ -898,21 +941,21 @@
             <div class="timeline-item">
               <div class="timeline-title">BJUT · Environmental Science & Engineering</div>
               <div class="timeline-meta">
-2025 – Present  
-· 北京工业大学 环境科学与工程学院 25级03班 班长，副团支部书记 
-· 北京工业大学 新生英才计划 学员
-· 北京工业大学 校史馆（档案馆）采编部 副部长
-· 北京工业大学 党员先锋社 学员
-· 北京工业大学 环境科学与工程学院 文体部 干事
+                2025 – Present  
+                · 北京工业大学 环境科学与工程学院 25级03班 班长，副团支部书记 
+                · 北京工业大学 新生英才计划 学员
+                · 北京工业大学 校史馆（档案馆）采编部 副部长
+                · 北京工业大学 党员先锋社 学员
+                · 北京工业大学 环境科学与工程学院 文体部 干事
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-title">BSDEFZ · High School Years</div>
               <div class="timeline-meta">
-2022 – 2025  
-· 北师大二附中 25届13班 学习委员
-· 北师大二附中 志愿者协会宣传部 部长 
-· 北师大二附中 业余党校 学员
+                2022 – 2025  
+                · 北师大二附中 25届13班 学习委员
+                · 北师大二附中 志愿者协会宣传部 部长 
+                · 北师大二附中 业余党校 学员
               </div>
             </div>
           </div>
@@ -1036,22 +1079,21 @@
       <!-- CONTACT -->
       <section id="contact">
   <div class="section-header">
-    <div class="section-title">Contact Me</div>
-    <div class="section-subtitle">Feel free to say hi :)</div>
+    <div class="section-title">Contact me</div>
+    <div class="section-subtitle">hi :)</div>
   </div>
 
-  <div class="contact-layout contact-centered">
-    <article class="card contact-card">
-      <p class="contact-intro">
-        I'm open to questions, collaboration ideas, or simple “I'm also confused about life”
-        messages. If anything here resonates with you, you're very welcome to reach out.
+  <div class="contact-layout">
+    <div class="card">
+      <p>
+        Open to collaborations and questions! Feel free to reach out via email or through the links below.
       </p>
 
       <div class="contact-list">
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div>
-            Email:
+            Email：
             <a class="contact-link" href="mailto:2044652586@qq.com">
               2044652586@qq.com
             </a>
@@ -1059,10 +1101,10 @@
         </div>
 
         <div class="contact-item">
-          <div class="contact-icon">🐙</div>
+          <div class="contact-icon">🔗</div>
           <div>
-            GitHub:
-            <a class="contact-link" href="https://github.com/2044652586" target="_blank">
+            GitHub：
+            <a class="contact-link" href="https://github.com/2044652586">
               github.com/2044652586
             </a>
           </div>
@@ -1071,8 +1113,8 @@
         <div class="contact-item">
           <div class="contact-icon">📕</div>
           <div>
-            Xiaohongshu:
-            <a class="contact-link" href="https://xhslink.com/m/9mLQjmyNZse" target="_blank">
+            Xiaohongshu：
+            <a class="contact-link" href="https://xhslink.com/m/9mLQjmyNZse">
               My XHS Profile
             </a>
           </div>
@@ -1081,8 +1123,8 @@
         <div class="contact-item">
           <div class="contact-icon">📺</div>
           <div>
-            Bilibili:
-            <a class="contact-link" href="https://space.bilibili.com/375546621" target="_blank">
+            Bilibili：
+            <a class="contact-link" href="https://space.bilibili.com/375546621">
               space.bilibili.com/375546621
             </a>
           </div>
@@ -1090,8 +1132,12 @@
       </div>
 
       <div class="contact-note">
-        * Message me in Chinese or English — both are perfectly okay.
+        * Message me in Chinese or English — both are fine.
       </div>
+    </div>
+  </div>
+</section>
+
     </article>
   </div>
 </section>
