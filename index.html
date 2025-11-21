@@ -569,50 +569,74 @@
 
     /* CONTACT */
 
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 16px;
-      align-items: flex-start;
+    /* 让 contact 部分整体居中，只一列 */
+    .contact-layout.contact-centered {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
     }
 
+    /* 卡片不要太宽，看起来更精致 */
+    .contact-card {
+      max-width: 640px;
+      width: 100%;
+    }
+
+    /* 上面那段介绍文字 */
+    .contact-intro {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    /* 每一行联系方式 */
     .contact-list {
-      margin-top: 8px;
+      margin-top: 6px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      font-size: 12px;
+      gap: 8px;
+      font-size: 13px;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
+    /* 左边的圆圆彩色图标 */
     .contact-icon {
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
       background: #dcfce7;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 14px;
       color: #047857;
+      flex-shrink: 0;
     }
 
+    /* 右边的链接 */
     .contact-link {
       text-decoration: underline;
       text-underline-offset: 2px;
       color: #047857;
     }
 
+    .contact-link:hover {
+      color: #059669;
+    }
+
+    /* 最底下一句小字 */
     .contact-note {
-      margin-top: 6px;
+      margin-top: 10px;
       font-size: 11px;
       color: var(--text-soft);
     }
+
 
     .contact-form {
       display: grid;
@@ -1011,63 +1035,67 @@
 
       <!-- CONTACT -->
       <section id="contact">
-        <div class="section-header">
-          <div class="section-title">Contact Me</div>
-          <div class="section-subtitle">Feel free to say hi :)</div>
-        </div>
+  <div class="section-header">
+    <div class="section-title">Contact Me</div>
+    <div class="section-subtitle">Feel free to say hi :)</div>
+  </div>
 
-        <div class="contact-layout">
-          <div class="card">
-            <p>
-              I’m open to questions, collaboration ideas, or simple “I’m also confused about life” messages.
-              If anything here resonates with you, you’re very welcome to reach out.
-            </p>
+  <div class="contact-layout contact-centered">
+    <article class="card contact-card">
+      <p class="contact-intro">
+        I'm open to questions, collaboration ideas, or simple “I'm also confused about life”
+        messages. If anything here resonates with you, you're very welcome to reach out.
+      </p>
 
-            <div class="contact-list">
-              <div class="contact-item">
-                <div class="contact-icon">✉️</div>
-                <div>
-                  Email:
-                  <a class="contact-link" href="mailto:2044652586@qq.com">
-                    2044652586@qq.com
-                  </a>
-                </div>
-              </div>
-              <div class="contact-item">
-                <div class="contact-icon">🔗</div>
-                <div>
-                  GitHub: <a class="contact-link" href="https://github.com/2044652586" target="_blank">github.com/2044652586</a>
-                </div>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">📕</div>
-              <div>
-                Xiaohongshu:
-                <a class="contact-link" href="https://xhslink.com/m/9mLQjmyNZse" target="_blank">
-                  My XHS Profile
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">📺</div>
-              <div>
-                Bilibili:
-                <a class="contact-link" href="https://space.bilibili.com/375546621" target="_blank">
-                  space.bilibili.com/375546621
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-note">
-              * The form on the right is a mock-up. If I ever need it to actually send emails, I’ll hook it up to a simple backend.
-            </div>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            Email:
+            <a class="contact-link" href="mailto:2044652586@qq.com">
+              2044652586@qq.com
+            </a>
           </div>
-
-          
         </div>
-      </section>
+
+        <div class="contact-item">
+          <div class="contact-icon">🐙</div>
+          <div>
+            GitHub:
+            <a class="contact-link" href="https://github.com/2044652586" target="_blank">
+              github.com/2044652586
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📕</div>
+          <div>
+            Xiaohongshu:
+            <a class="contact-link" href="https://xhslink.com/m/9mLQjmyNZse" target="_blank">
+              My XHS Profile
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📺</div>
+          <div>
+            Bilibili:
+            <a class="contact-link" href="https://space.bilibili.com/375546621" target="_blank">
+              space.bilibili.com/375546621
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        * Message me in Chinese or English — both are perfectly okay.
+      </div>
+    </article>
+  </div>
+</section>
+
     </main>
 
     <footer>
